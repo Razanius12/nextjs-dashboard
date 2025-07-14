@@ -1,6 +1,10 @@
-import { users } from '../../../lib/placeholder-data';
+'use client';
 
-export default function ProfilePage({ params }: { params: { id: string } }) {
+import { users } from '../../../lib/placeholder-data';
+import { useParams } from 'next/navigation';
+
+export default function ProfilePage() {
+  const params = useParams<{ id: string }>();
   const user = users.find(u => u.id === params.id);
 
   if (!user) {
